@@ -1,0 +1,69 @@
+
+.imageContainer{
+    margin-left: 22rem;
+}
+
+.heading{
+    font-family: 'Rammetto One', cursive;
+    margin-left: 32rem;
+    color: rgb(107, 29, 26);
+}
+
+#start{
+    margin-left: 4rem;
+}
+
+.mainGame{
+    background: linear-gradient(to bottom, rgba(137,137,186,1) 0%,rgba(137,137,186,1) 100%);
+    text-align: center;
+    width: 50rem;
+    height: auto;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 18rem;
+}
+
+#alertMsg{
+    color: rgb(185, 32, 32);
+}
+
+#attempts, #word, #guessedLetters{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 120%;
+}
+.triangle-bottom:after{
+    background: 
+                linear-gradient(-45deg, transparent 16px, #031e2b 0), 
+                linear-gradient(45deg, transparent 16px, #031e2b  0);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-size: 22px 22px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 32px;
+    position: relative;
+    top:30px;
+    left:0px;
+}
+
+.triangle-top:before{
+    background: 
+                linear-gradient(-45deg, #031e2b 16px, red 16px, #031e2b 16px,  transparent 0), 
+                linear-gradient(45deg,#031e2b 16px, transparent 0);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 22px 22px;
+    content: " ";
+    display: block;
+    height: 32px;
+    width: 100%;
+    position: relative;
+    bottom: 30px;
+    left:0;
+}
+
+.buttons{
+    font-family: 'Fontdiner Swanky', cursive;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Rammetto+One|Satisfy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fontdiner+Swanky" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/backgrounds.css">
+    <link rel="stylesheet" href="./assets/css/gamePage.css">
+    <title>Game Of Thrones</title>
+</head>
+<body class="gameOfThrones">
+    <div class="container imageContainer">
+            <img src="./assets/images/GOT/banner3.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="container heading">
+        <h2>Guess the GOT Flag....</h2>
+        <h5 id="start">Press any letter to start</h5>
+    </div>
+    <div class="container mainGame triangle-bottom triangle-top">
+        <h3><p id="attempts">You have 10 guesses left.</p></h3>
+        <h3><p id="alertMsg"></p></h3>
+        <p id="word"></p>
+        <h4 id="guessedLetters"></h4>
+        <div class="row buttons">
+                <div class="col">
+                        <a class="btn btn-lg options" href="index.html" role="button">Main Menu</a>
+                </div>
+                <div class="col">
+                        <a class="btn btn-lg options" href="gameOfThrones.html" role="button">Restart</a>
+                </div>
+    </div>
+    <script type="text/javascript" src="./assets/scripts/javascriptGOT.js"></script>
+</body>
+</html>
