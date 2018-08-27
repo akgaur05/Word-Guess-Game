@@ -53,13 +53,15 @@ document.onkeyup = function (event) {
             }
         }
 
-        if (win < 1) {
+        if (win === 0) {
+            console.log("in win:" +win);
             document.getElementById("attempts").innerHTML = "You Win!!!"
         }
         else if (attemptsLeft < 1 && win > 0) {
+            console.log("not in win:" +win);
             document.getElementById("attempts").innerHTML = "You Lose!!!" + " The correct answer is: "+ computerChoice ;
         } else {
-            document.getElementById("attempts").innerHTML = "You have " + attemptsLeft + " guesses left."
+            document.getElementById("attempts").innerHTML = "You have " + attemptsLeft + " chances left."
         }
     }
 }

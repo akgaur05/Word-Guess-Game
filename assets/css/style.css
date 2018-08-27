@@ -77,3 +77,7 @@ body{
 .options:hover{
     color: rgb(85, 1, 46);
 }
+
+@media (min-width: 992px) {
+    
+  }
