@@ -77,14 +77,14 @@ document.onkeyup = function (event) {
         if (win === 0) {
             document.getElementById("attempts").innerHTML = "You Win!!Guess Next..."
              // 3 seconds timer before page refreshes
-            setTimeout("location.reload(true);", 3000);
+            setTimeout("location.reload(true);", 2000);
             // location.reload();
         } 
         else if (attemptsLeft < 1 && win > 0) {
             console.log("not in win:" +win);
             document.getElementById("attempts").innerHTML = "You Lose!!" + " The correct answer is: "+ computerChoice + ". Let's try again!!" ;   
             // 3 seconds timer before page refreshes
-            setTimeout("location.reload(true);", 3000);
+            setTimeout("location.reload(true);", 2000);
             // location.reload();
         } else {
             document.getElementById("attempts").innerHTML = "You have " + attemptsLeft + " chances left."
