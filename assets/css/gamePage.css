@@ -67,3 +67,58 @@
 .buttons{
     font-family: 'Fontdiner Swanky', cursive;
 }
+
+
+@media (max-width: 992px) {
+    .subContainer{
+        margin-left: 2rem;
+    }
+    .choices{
+        margin-left: 2rem;
+    }
+}
+@media (max-width: 600px) {
+    .mainContainer {
+        margin-left: 0.5rem;
+        margin-top: 2rem;
+        padding-top: 0rem;
+        text-align: center;
+        width: 100%;
+    }
+    .mainHeading{
+        font-size: xx-large;
+    }
+    .subContainer{
+        margin-left: 0.5rem;
+        padding-top: 0rem;
+    }
+    .choices{
+        margin-left: 2rem;
+    }
+}
+    @media only screen and (max-width: 450px) {
+        .imageContainer{
+             margin-left: 3rem;
+        }
+        .heading h2{
+            margin-left: -18rem;
+            /* font-size: 2em; */
+            /* overflow: auto; */
+        }
+        #start{
+            margin-left: -18rem;
+            /* font-size: 1.5em; */
+            /* overflow: auto; */
+        }
+        .mainGame{
+            margin-left: -1rem;
+            margin-top: 1rem;
+            /* overflow: auto; */
+        }
+        .container{
+            /* overflow: auto; */
+            /* width: 100%; */
+        }
+        min-width: width 300px;
+    }
+

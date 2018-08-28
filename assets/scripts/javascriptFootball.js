@@ -56,11 +56,13 @@ document.onkeyup = function (event) {
         if (win === 0) {
             console.log("in win:" +win);
             document.getElementById("attempts").innerHTML = "You Win!!!"
+            location.reload();
         }
         else if (attemptsLeft < 1 && win > 0) {
             console.log("not in win:" +win);
             document.getElementById("attempts").innerHTML = "You Lose!!!" + " The correct answer is: "+ computerChoice ;
-        } else {
+            location.reload();
+         } else {
             document.getElementById("attempts").innerHTML = "You have " + attemptsLeft + " chances left."
         }
     }

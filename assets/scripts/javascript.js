@@ -11,7 +11,6 @@ var userLetter = "";
 var display = [myLength];
 var guessedLetters = [];
 
-
 var setup = function () {
     for (var i = 0; i < myLength; i++) {
         display[i] = "_ ";
@@ -21,6 +20,8 @@ var setup = function () {
     document.getElementById("word").innerHTML = output;
     output = "";
 }
+
+
 document.onkeyup = function (event) {
     var userText = event.key;
     output = "";
@@ -52,14 +53,14 @@ document.onkeyup = function (event) {
                 document.getElementById("alertMsg").innerHTML = "You have won!!!Can't enter more letters.";
             }
         }
-
         if (win === 0) {
-            console.log("in win:" +win);
-            document.getElementById("attempts").innerHTML = "You Win!!!"
-        }
+            document.getElementById("attempts").innerHTML = "You Win!!Guess Next..."
+            location.reload();
+        } 
         else if (attemptsLeft < 1 && win > 0) {
             console.log("not in win:" +win);
-            document.getElementById("attempts").innerHTML = "You Lose!!!" + " The correct answer is: "+ computerChoice ;
+            document.getElementById("attempts").innerHTML = "You Lose!!" + " The correct answer is: "+ computerChoice + ". Let's try again!!" ;   
+            location.reload();
         } else {
             document.getElementById("attempts").innerHTML = "You have " + attemptsLeft + " chances left."
         }
