@@ -30,8 +30,8 @@
 
 #attempts, #word, #guessedLetters{
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 120%;
 }
+
 .triangle-bottom:after{
     background: 
                 linear-gradient(-45deg, transparent 16px, #031e2b 0), 
@@ -70,6 +70,21 @@
 
 .options{
     color: #031e2b;
+}
+
+@media (max-width: 450px) {
+    .heading { 
+        margin-left: 120px;
+        width: 600px;
+        height: 350px;
+        padding-top: 90px;
+    }
+    .mainGame{
+        margin-left: 10px;
+    }
+    .imageContainer{
+        margin-left: 70px;
+    }
 }
 
 
