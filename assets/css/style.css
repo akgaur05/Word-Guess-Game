@@ -78,6 +78,51 @@ body{
     color: rgb(85, 1, 46);
 }
 
-@media (min-width: 992px) {
-    
-  }
+  @media (max-width: 992px) {
+    .subContainer{
+        margin-left: 2rem;
+    }
+    .choices{
+        margin-left: 2rem;
+    }
+}
+    @media (max-width: 600px) {
+        .mainContainer {
+            margin-left: 0.5rem;
+            margin-top: 2rem;
+            padding-top: 0rem;
+            text-align: center;
+            width: 100%;
+        }
+        .mainHeading{
+            font-size: xx-large;
+        }
+        .subContainer{
+            margin-left: 0.5rem;
+            padding-top: 0rem;
+        }
+        .choices{
+            margin-left: 2rem;
+        }
+    }
+        @media (max-width: 450px) {
+            .mainContainer {
+                margin-left: 0rem;
+                margin-top: 2rem;
+                padding-top: 0rem;
+                text-align: center;
+                width: 100%;
+            }
+            .mainHeading{
+                font-size: xx-large;
+            }
+            .subContainer{
+                margin-left: 0rem;
+                padding-top: 0rem;
+            }
+            .choices{
+                margin-top: 1rem;
+                margin-left: 0rem;
+            }
+        }
+
