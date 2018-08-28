@@ -1,17 +1,17 @@
 
 .imageContainer{
-    margin-left: 22rem;
+    margin-left: 16rem;
 }
 
 .heading{
     font-family: 'Rammetto One', cursive;
-    margin-left: 32rem;
+    margin-left: 20rem;
     color: rgb(107, 29, 26);
 }
 
 #start{
-    margin-left: 4rem;
-}
+    padding-left: 5rem;
+} 
 
 .mainGame{
     background: linear-gradient(to bottom, rgba(137,137,186,1) 0%,rgba(137,137,186,1) 100%);
@@ -21,7 +21,7 @@
     margin-top: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    margin-left: 18rem;
+    margin-left: 10rem;
 }
 
 #alertMsg{
@@ -68,57 +68,8 @@
     font-family: 'Fontdiner Swanky', cursive;
 }
 
+.options{
+    color: #031e2b;
+}
 
-@media (max-width: 992px) {
-    .subContainer{
-        margin-left: 2rem;
-    }
-    .choices{
-        margin-left: 2rem;
-    }
-}
-@media (max-width: 600px) {
-    .mainContainer {
-        margin-left: 0.5rem;
-        margin-top: 2rem;
-        padding-top: 0rem;
-        text-align: center;
-        width: 100%;
-    }
-    .mainHeading{
-        font-size: xx-large;
-    }
-    .subContainer{
-        margin-left: 0.5rem;
-        padding-top: 0rem;
-    }
-    .choices{
-        margin-left: 2rem;
-    }
-}
-    @media only screen and (max-width: 450px) {
-        .imageContainer{
-             margin-left: 3rem;
-        }
-        .heading h2{
-            margin-left: -18rem;
-            /* font-size: 2em; */
-            /* overflow: auto; */
-        }
-        #start{
-            margin-left: -18rem;
-            /* font-size: 1.5em; */
-            /* overflow: auto; */
-        }
-        .mainGame{
-            margin-left: -1rem;
-            margin-top: 1rem;
-            /* overflow: auto; */
-        }
-        .container{
-            /* overflow: auto; */
-            /* width: 100%; */
-        }
-        min-width: width 300px;
-    }
 
