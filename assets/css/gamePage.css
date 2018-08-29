@@ -1,6 +1,10 @@
 
 .imageContainer{
-    margin-left: 16rem;
+    margin-left: 18rem;
+    width: 50%;
+    height: 200px;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .heading{
