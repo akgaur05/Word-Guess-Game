@@ -1,125 +1,134 @@
-//setting my mainPage
+//Using objects
+var wordGuess = {
+    choice: [],
+    computerChoice: 0,
+    myLength: 0,
+    win: 0,
+    letters: [],
+    attemptsLeft: 0,
+    output: "",
+    userLetter: "",
+    display: [],
+    guessedLetters: [],
+    correctGuesses: [],
+    check: 0,
+    losses: 0,
+    wins: 0,
+    docDiv: "",
+    //functions
+    makeChoice: function () {
+        this.docDiv = document.getElementsByTagName("DIV")[0];
+        switch (this.docDiv.id) {
+            case "languages":
+                this.choices = ['PYTHON', 'JAVASCRIPT', 'PERL', 'JAVA', 'ANGULARJS', 'PHP', 'BASIC', 'NODEJS', 'RUBY'];
+                break;
+            case "gameOfThrones":
+                this.choices = ['BOLTON', 'BARATHEON', 'GREYJOY', 'LANNISTER', 'MARTELL', 'STARK', 'TARGARYEN', 'TYRELL'];
+                break;
+            case "football":
+                this.choices = ["EVERTON", "LIVERPOOL", "SWANSEA", "CHELSEA", "HULL", "MANCHESTER", "NEWCASTLE"];
+                break;
+            case "cities":
+                this.choices = ['HOUSTON', 'AUSTIN', 'CHICAGO', 'DALLAS', 'MIAMI', 'ATLANTA', 'DENVER', 'SEATTLE'];
+                break;
+            case "animals":
+                this.choices = ['DOG', 'MONKEY', 'LION', 'RHINO', 'ZEBRA', 'TIGER', 'FOX', 'BEAR'];
+                break;
+            default:
+                this.choices = ['PETS', 'TROY', 'SUPERMAN', 'ALIEN', 'JAWS', 'BOLT', 'SPIDERMAN', 'CONJURING'];
+        }
+    },
 
-
-//declare and initialize array
-var choices = [];
-//to select id from first DIV and display choices according to DIV ID. 
-var x = document.getElementsByTagName("DIV")[0];
-console.log(x.id);
-if (x.id === "languages") {
-    choices = ['PYTHON', 'JAVASCRIPT', 'PERL', 'JAVA', 'ANGULARJS', 'PHP', 'BASIC', 'NODEJS', 'RUBY'];
-} else if (x.id === "gameOfThrones") {
-    choices = ['BOLTON', 'BARATHEON', 'GREYJOY', 'LANNISTER', 'MARTELL', 'STARK', 'TARGARYEN', 'TYRELL'];
-} else if (x.id === "football") {
-    choices = ["EVERTON", "LIVERPOOL", "SWANSEA", "CHELSEA", "HULL", "MANCHESTER", "NEWCASTLE"];
-} else if (x.id === "cities") {
-    choices = ['HOUSTON', 'AUSTIN', 'CHICAGO', 'DALLAS', 'MIAMI', 'ATLANTA', 'DENVER', 'SEATTLE'];
-} else if (x.id === "animals") {
-    choices = ['DOG', 'MONKEY', 'LION', 'RHINO', 'ZEBRA', 'TIGER', 'FOX', 'BEAR'];
-} else {
-    choices = ['PETS', 'TROY', 'SUPERMAN', 'ALIEN', 'JAWS', 'BOLT', 'SPIDERMAN', 'CONJURING'];
-}
-
-//setting rest of the variables based on array chosen
-var computerChoice = 0;
-var myLength = 0;
-var win = 0;
-var letters = [];
-var attemptsLeft = 0;
-var output = "";
-var userLetter = "";
-var display = [];
-var guessedLetters = [];
-var correctGuesses = [];
-var check = 0;
-var losses=0;
-var wins=0;
-
-
-//setup the variables
-var setup = function () {
-    computerChoice = choices[Math.floor(Math.random() * choices.length)];
-    myLength = computerChoice.length;
-    win = myLength;
-    letters = computerChoice.split('');
-    attemptsLeft = 10;
-    output = "";
-    userLetter = "";
-    display = [myLength];
-    guessedLetters = [];
-    correctGuesses = [];
-    check = 0;
-    for (var i = 0; i < myLength; i++) {
-        display[i] = "_ ";
-        output = output + display[i];
+    setup: function () {
+        wordGuess.makeChoice();
+        this.computerChoice = this.choices[Math.floor(Math.random() * this.choices.length)];
+        this.myLength = this.computerChoice.length;
+        this.win = this.myLength;
+        this.letters = this.computerChoice.split('');
+        this.attemptsLeft = 10;
+        this.output = "";
+        this.userLetter = "";
+        this.display = [this.myLength];
+        this.guessedLetters = [];
+        this.correctGuesses = [];
+        this.check = 0;
+        for (var i = 0; i < this.myLength; i++) {
+            this.display[i] = "_ ";
+            this.output = this.output + this.display[i];
+        }
+        document.getElementById("guessedLetters").innerHTML = "Guessed Letters:";
+        document.getElementById("word").innerHTML = this.output;
+        document.getElementById("alertMsg").innerHTML = "";
+        document.getElementById("attempts").innerHTML = "You have 10 chances left."
+        document.getElementById("wins").innerHTML = "Win: " + this.wins;
+        document.getElementById("losses").innerHTML = "Losses: " + this.losses;
+        this.output = "";
     }
-    document.getElementById("guessedLetters").innerHTML = "Guessed Letters:";
-    document.getElementById("word").innerHTML = output;
-    document.getElementById("alertMsg").innerHTML = "";
-    document.getElementById("attempts").innerHTML = "You have 10 chances left."
-    document.getElementById("wins").innerHTML ="Win: "+wins;
-    document.getElementById("losses").innerHTML ="Losses: " +losses;
-    output = "";
+
+};
+
+//setup my page
+function setupPage() {
+    wordGuess.setup();
 }
-
-
 //when user presses the key
 document.onkeyup = function (event) {
     var userText = event.key;
-    output = "";
+    wordGuess.output = "";
     var flag = 0;
 
-    if (!(event.keyCode >= 65 && event.keyCode <= 90) && attemptsLeft > 0) {
+    if (!(event.keyCode >= 65 && event.keyCode <= 90) && wordGuess.attemptsLeft > 0) {
         document.getElementById("alertMsg").innerHTML = "Aha! It's not an alphabet...Please try again!!";
     } else {
-        if (attemptsLeft > 0 && win > 0) {
+        if (wordGuess.attemptsLeft > 0 && wordGuess.win > 0) {
             document.getElementById("alertMsg").innerHTML = "";
-            for (var i = 0; i < myLength; i++) {
-                if (userText.toUpperCase() === letters[i]) {
-                    display[i] = userText.toUpperCase();
+            for (var i = 0; i < wordGuess.myLength; i++) {
+                if (userText.toUpperCase() === wordGuess.letters[i]) {
+                    wordGuess.display[i] = userText.toUpperCase();
                     flag = 1;
-                    if (!(correctGuesses.includes(userText.toUpperCase()))) {
-                        win--;
+                    if (!(wordGuess.correctGuesses.includes(userText.toUpperCase()))) {
+                        wordGuess.win--;
                     }
                 }
-                output = output + display[i] + " ";
+                wordGuess.output = wordGuess.output + wordGuess.display[i] + " ";
             }
             //2 & 3 conditions in this will prevent to enter already right and wrong guesses
-            if (flag === 0 && !(correctGuesses.includes(userText.toUpperCase())) && !(guessedLetters.includes(userText.toUpperCase()))) {
-                guessedLetters.push(userText.toUpperCase());
-                attemptsLeft--;
+            if (flag === 0 && !(wordGuess.correctGuesses.includes(userText.toUpperCase())) && !(wordGuess.guessedLetters.includes(userText.toUpperCase()))) {
+                wordGuess.guessedLetters.push(userText.toUpperCase());
+                wordGuess.attemptsLeft--;
             } else {
-                correctGuesses.push(userText.toUpperCase());
+                wordGuess.correctGuesses.push(userText.toUpperCase());
             }
-            document.getElementById("word").innerHTML = output;
-            document.getElementById("guessedLetters").innerHTML = "Guessed Letters:" + guessedLetters;
-            output = "";
+            document.getElementById("word").innerHTML = wordGuess.output;
+            document.getElementById("guessedLetters").innerHTML = "Guessed Letters:" + wordGuess.guessedLetters;
+            wordGuess.output = "";
         } else {
-            if (attemptsLeft < 1) {
+            if (wordGuess.attemptsLeft < 1) {
                 document.getElementById("alertMsg").innerHTML = "Can't enter more letters.";
             } else {
                 document.getElementById("alertMsg").innerHTML = "You have won!!!Can't enter more letters.";
             }
         }
-        if (win === 0) {
-            wins++;
+        if (wordGuess.win === 0) {
+            wordGuess.wins++;
             document.getElementById("attempts").innerHTML = "You Win!!Guess Next..."
-            document.getElementById("wins").innerHTML ="Win: " +wins;
-            // 1 second timer before page setup is called
-            setTimeout("setup();", 1000);
+            document.getElementById("wins").innerHTML = "Win: " + wordGuess.wins;
+            // 0.5 second timer before page setup is called
+            setTimeout("wordGuess.setup();", 500);
         }
-        else if (attemptsLeft < 1 && win > 0) {
-            losses++;
-            document.getElementById("losses").innerHTML ="Losses: " +losses;
-            document.getElementById("attempts").innerHTML = "You Lose!!" + " The correct answer is: " + computerChoice + ". Let's try again!!";
-            // 1 second timer before page setup is called
-            setTimeout("setup();", 1000);
+        else if (wordGuess.attemptsLeft < 1 && wordGuess.win > 0) {
+            wordGuess.losses++;
+            document.getElementById("losses").innerHTML = "Losses: " + wordGuess.losses;
+            document.getElementById("attempts").innerHTML = "You Lose!!" + " The correct answer is: " + wordGuess.computerChoice + ". Let's try again!!";
+            // 0.5 second timer before page setup is called
+            setTimeout("wordGuess.setup();", 500);
         } else {
-            document.getElementById("attempts").innerHTML = "You have " + attemptsLeft + " chances left."
+            document.getElementById("attempts").innerHTML = "You have " + wordGuess.attemptsLeft + " chances left."
         }
     }
 }
 
+
 window.onload = function () {
-    setup();
+    setupPage();
 }
