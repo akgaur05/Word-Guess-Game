@@ -113,21 +113,20 @@ document.onkeyup = function (event) {
             wordGuess.wins++;
             document.getElementById("attempts").innerHTML = "You Win!!Guess Next..."
             document.getElementById("wins").innerHTML = "Win: " + wordGuess.wins;
-            // 0.5 second timer before page setup is called
-            setTimeout("wordGuess.setup();", 500);
+            //takes less than 0.5 second timer before page setup is called
+            setTimeout("wordGuess.setup();", 200);
         }
         else if (wordGuess.attemptsLeft < 1 && wordGuess.win > 0) {
             wordGuess.losses++;
             document.getElementById("losses").innerHTML = "Losses: " + wordGuess.losses;
             document.getElementById("attempts").innerHTML = "You Lose!!" + " The correct answer is: " + wordGuess.computerChoice + ". Let's try again!!";
-            // 0.5 second timer before page setup is called
-            setTimeout("wordGuess.setup();", 500);
+            //takes less than 0.5 second timer before page setup is called.Increased time so that user could see correct answer
+            setTimeout("wordGuess.setup();", 300);
         } else {
             document.getElementById("attempts").innerHTML = "You have " + wordGuess.attemptsLeft + " chances left."
         }
     }
 }
-
 
 window.onload = function () {
     setupPage();
